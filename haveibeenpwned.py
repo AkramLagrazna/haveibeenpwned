@@ -1,8 +1,8 @@
 import requests
-import pprint
+import json
 
 print("-----------------------------")
-print("Welcome to \"Have i been Pwned?\"")
+print("Welcome to \"Have i been Pwned?\ v1.1"")
 print("-----------------------------")
 par = {
     "truncateResponse" : "true"
@@ -16,10 +16,24 @@ while active != 1:
     if connection.status_code is 200:
         print("Connected..")
         print("Printing output..")
-        jsonn = connection.json()
-        pp = pprint.PrettyPrinter(indent=1)
-        pp.pprint(jsonn)
-        print pp
+        try:
+            variabile = 5
+            for i in range(0,variabile):
+                print("Printing Hacked Details. ")
+                print("Domain       :  "+str(connection.json()[i]['Domain']))
+                print("Info Hacked  :  "+str(connection.json()[i]['DataClasses']))
+                print("Name         :  "+str(connection.json()[i]['Name']))
+                print("Dump Verified:  "+str(connection.json()[i]['IsVerified']))
+                print("Description  :  "+str(connection.json()[i]['Description']))
+                print('')
+                print('..')
+        except IndexError:
+                      variabile = i
+        
+        
+        
+        
+            
         exitt = raw_input("You want to search another e-mail?  ")
         if exitt is n:
             print("Perfect. bye bye!")
@@ -44,6 +58,3 @@ while active != 1:
             active = 1
         else:
             print("Perfect, let's search for another e-mail!")
-        
-        
-        
