@@ -2,7 +2,7 @@ import requests
 import json
 
 print("-----------------------------")
-print("Welcome to \"Have i been Pwned?\ v1.1"")
+print("Welcome to \"Have i been Pwned?\" v1.1")
 print("-----------------------------")
 par = {
     "truncateResponse" : "true"
